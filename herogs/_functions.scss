@@ -1,0 +1,15 @@
+/// Remove the unit of a length
+/// @source https://css-tricks.com/snippets/sass/strip-unit-function/
+///
+/// @argument {Number} $number
+///   Number to remove unit from
+///
+/// @return {Number} Unitless number
+
+@function gs-strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}

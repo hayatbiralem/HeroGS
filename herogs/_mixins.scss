@@ -1,0 +1,67 @@
+/// HeroGS
+/// A helper mixin for grids
+///
+/// @argument {mix} $prop
+///   Current state of grid: "wrap", "col" or "gutter".
+///
+/// @argument {mix} $val1
+///   First value of current state if needed.
+///
+/// @argument {mix} $val2
+///   Second value of current state if needed.
+///
+/// @example
+///   .grid {
+///     @include gs(wrap); // init wrapper
+///     @include gs(gutter, -$grid-gutter-width); // use negative value for setting gutter for wrapper
+///   }
+///   .grid__col {
+///     @include gs(col); // init column
+///     @include gs(gutter, $grid-gutter-width); // use positive value for setting gutter for columns
+///     @media (min-width: 768px){
+///       @include gs(col, 1, 4); // set width for tablet devices and upper
+///     }
+///   }
+///
+/// @require {function} gs-strip-unit
+
+@mixin gs($prop: null, $val1: null, $val2: null) {
+  // clearfix
+  @if $prop == clearfix {
+    &:before,
+    &:after {
+      content: " "; // 1
+      display: table; // 2
+    }
+    &:after {
+      clear: both;
+    }
+  }
+  // init wrapper
+  @else if $prop == wrap {
+    @include gs(clearfix);
+  }
+  // set column width
+  @else if $prop == col {
+    width: percentage($val1 / $val2);
+  }
+  // init column
+  @else if $prop == col {
+    display: inline-block;
+    width: percentage(1);
+    min-height: 1px;
+    float: left;
+  }
+  // set gutter
+  @else if $prop == gutter {
+    @if $val1 < 0 {
+      // set wrapper gutter
+      margin-left: gs-strip-unit($val1 / 2)#{px};
+      margin-right: gs-strip-unit($val1 / 2)#{px};
+    } @else {
+      // set column gutter
+      padding-left: gs-strip-unit($val1 / 2)#{px};
+      padding-right: gs-strip-unit($val1 / 2)#{px};
+    }
+  }
+}
