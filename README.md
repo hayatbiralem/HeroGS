@@ -19,3 +19,12 @@ HeroGS is a tool that helps you to produce your grid system in simple ways.
   }
 }
 ```
+
+## Browser support
+IE8+ - Because [IE8 is back from the dead](http://www.webdesignerdepot.com/2016/01/ie8-is-back-from-the-dead/)
+
+## TODO
+- [ ] Examples
+- [ ] Masonry layout metodology
+- [ ] Flexbox support for modern browsers
+- [ ] Feature polyfills for old browsers
