@@ -9,11 +9,11 @@ HeroGS is a tool that helps you to produce your grid system in different ways.
 ```scss
 .grid {
   @include gs(wrap); // init wrapper
-  @include gs(gutter, -$grid-gutter-width); // use negative value for setting gutter for wrapper
+  @include gs(gutter, -30px); // use negative value for setting gutter for wrapper
 }
 .grid__col {
   @include gs(col); // init column
-  @include gs(gutter, $grid-gutter-width); // use positive value for setting gutter for columns
+  @include gs(gutter, 30px); // use positive value for setting gutter for columns
   @media (min-width: 768px){
     @include gs(col, 1, 4); // set width for tablet devices and upper
   }
