@@ -25,7 +25,7 @@ HeroGS is a tool that helps you to produce your grid system in simple ways.
 - `npm install` Install npm dependencies
 - `gulp` Connect to the server, build examples and watch for changes
 
-then Open [localhost:8080](http://localhost:8080) from your browser
+then open [localhost:8080](http://localhost:8080) from your browser
 
 ## Browser support
 IE8+ - Because [IE8 is back from the dead](http://www.webdesignerdepot.com/2016/01/ie8-is-back-from-the-dead/)
