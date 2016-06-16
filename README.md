@@ -1,7 +1,7 @@
 # HeroGS
 HeroGS is a tool that helps you to produce your grid system in different ways.
 
-## Inspired of amazing packages:
+## Inspired of amazing packages
 - [flexiblegs-scss](https://github.com/flexiblegs/flexiblegs-scss) - Flexible Grid System Scss.
 - [bootstrap-sass](https://github.com/twbs/bootstrap-sass) - Official Sass port of Bootstrap 2 and 3.
 
