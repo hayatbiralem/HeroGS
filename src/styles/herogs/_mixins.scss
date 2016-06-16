@@ -37,12 +37,24 @@
       clear: both;
     }
   }
+  // box-sizing
+  @if $prop == box-sizing {
+    & {
+      box-sizing: border-box;
+      @if $val1 == inherit {
+        > * {
+          box-sizing: inherit;
+        }
+      }
+    }
+  }
   // init wrapper
   @else if $prop == wrap {
     @include gs(clearfix);
+    @include gs(box-sizing, inherit);
   }
   // set column width
-  @else if $prop == col {
+  @else if $prop == col and $val1 != null {
     width: percentage($val1 / $val2);
   }
   // init column

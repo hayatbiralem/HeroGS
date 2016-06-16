@@ -1,0 +1,41 @@
+{
+  "name": "herogs",
+  "version": "1.0.0",
+  "description": "HeroGS is a tool that helps you to produce your grid system in simple ways.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hayatbiralem/HeroGS.git"
+  },
+  "keywords": [
+    "css",
+    "bem",
+    "grid",
+    "herogs",
+    "responsive",
+    "framework",
+    "flexbox",
+    "flex"
+  ],
+  "author": "@hayatbiralem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hayatbiralem/HeroGS/issues"
+  },
+  "homepage": "https://github.com/hayatbiralem/HeroGS#readme",
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^4.1.0",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-prettify": "^0.4.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemap": "^1.0.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-twig": "^0.5.0"
+  }
+}
