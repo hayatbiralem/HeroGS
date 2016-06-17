@@ -6,7 +6,7 @@ HeroGS is a tool that helps you to produce your grid system in simple ways.
 - [bootstrap-sass](https://github.com/twbs/bootstrap-sass) - Official Sass port of Bootstrap 2 and 3.
 
 ## Example
-```scss
+```sass
 .grid {
   @include gs(wrap); // init wrapper
   @include gs(gutter, -30); // use negative value for setting gutter for wrapper
@@ -14,7 +14,7 @@ HeroGS is a tool that helps you to produce your grid system in simple ways.
 .grid__col {
   @include gs(col); // init column
   @include gs(gutter, 30); // use positive value for setting gutter for columns
-  @media screen and (min-width: 768px){
+  @media (min-width: 768px){
     @include gs(col, 1, 4); // set width for tablet devices and upper
   }
 }
