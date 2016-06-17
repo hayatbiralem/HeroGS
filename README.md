@@ -8,7 +8,7 @@ HeroGS is a tool that helps you to produce your grid system in simple ways.
 - [bootstrap-sass](https://github.com/twbs/bootstrap-sass) - Official Sass port of Bootstrap 2 and 3.
 
 ## Example
-```scss
+```sass
 .grid {
   @include gs(wrap); // init wrapper
   @include gs(gutter, -30); // use negative value for setting gutter for wrapper
