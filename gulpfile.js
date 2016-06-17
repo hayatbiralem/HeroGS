@@ -15,7 +15,7 @@ var data = JSON.parse(fs.readFileSync('src/json/data.json'));
 // html
 gulp.task('html', function () {
 
-    return gulp.src('src/examples/index.twig')
+    return gulp.src('src/docs/index.twig')
 
         // compile
         .pipe(twig({ data: data }))
@@ -37,7 +37,7 @@ gulp.task('html', function () {
         .pipe(replace(/(\n[^<]+<!-- \/\/.*? -->)/g, "$1\n"))
 
         // dist
-        .pipe(gulp.dest('dist/examples'))
+        .pipe(gulp.dest('dist'))
 
         // reload
         .pipe(connect.reload());
@@ -45,24 +45,24 @@ gulp.task('html', function () {
 
 // sass
 gulp.task('sass', function () {
-    return gulp.src('src/**/*.scss')
+    return gulp.src('src/docs/styles/docs.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compact'}).on('error', sass.logError))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('dist/styles'))
         .pipe(connect.reload());
 });
 
 // assets
 gulp.task('assets', function(){
-    gulp.src('src/examples/**/*.{jpg,png,svg,ico}')
-        .pipe(gulp.dest('dist/examples'));
+    gulp.src('src/docs/**/*.{jpg,png,svg,ico}')
+        .pipe(gulp.dest('dist'));
 });
 
 // connect
 gulp.task('connect', function() {
     connect.server({
-        root: 'dist/examples',
+        root: 'dist',
         livereload: {
             port: 4377
         },
