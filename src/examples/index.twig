@@ -2,20 +2,83 @@
 
 {% block page %}
 
-	<div class="grid">
-		<div class="grid__col">
-			<div class="grid__content">1</div>
-		</div>
-		<div class="grid__col">
-			<div class="grid__content">2</div>
-		</div>
-		<div class="grid__col">
-			<div class="grid__content">3</div>
-		</div>
-		<div class="grid__col">
-			<div class="grid__content">4</div>
-		</div>
-	</div>
+    <h1 class="heading heading--1">HeroGS Examples</h1>
+
+    <h2 class="heading heading--2">Simple 4 Columns Grid</h2>
+
+    <div class="grid grid--gutter-30 grid--sm-4">
+        <div class="grid__col">
+            <div class="cell">
+                <div class="cell__inner">1</div>
+            </div>
+        </div>
+        <div class="grid__col">
+            <div class="cell">
+                <div class="cell__inner">2</div>
+            </div>
+        </div>
+        <div class="grid__col">
+            <div class="cell">
+                <div class="cell__inner">3</div>
+            </div>
+        </div>
+        <div class="grid__col">
+            <div class="cell">
+                <div class="cell__inner">4</div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="heading heading--3">Responsive Masonry Grid Without Javascript, CSS Flex or CSS Grid</h2>
+
+    <div class="masonry-grid masonry-grid__gutter-30 masonry-grid--6x2 masonry-grid--sm-4x3">
+        <div class="masonry-grid__inner">
+            <div class="masonry-grid__items">
+                <div class="masonry-grid__item w-2 h-2 l-0 t-0">
+                    <div class="masonry-grid__content">
+                        <div class="cell">
+                            <div class="cell__inner">2x2</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-grid__item w-1 h-3 l-1 t-2 sm-l-2 sm-t-0">
+                    <div class="masonry-grid__content">
+                        <div class="cell">
+                            <div class="cell__inner">3x1</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-grid__item w-1 h-1 l-0 t-2 sm-l-0 sm-t-2">
+                    <div class="masonry-grid__content">
+                        <div class="cell">
+                            <div class="cell__inner">1x1</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-grid__item w-1 h-2 l-0 t-4 sm-l-1 sm-t-2">
+                    <div class="masonry-grid__content">
+                        <div class="cell">
+                            <div class="cell__inner">2x1</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-grid__item w-1 h-1 l-0 t-3 sm-l-0 sm-t-3">
+                    <div class="masonry-grid__content">
+                        <div class="cell">
+                            <div class="cell__inner">1x1</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="masonry-grid__item w-1 h-1 l-1 t-5 sm-l-2 sm-t-3">
+                    <div class="masonry-grid__content">
+                        <div class="cell">
+                            <div class="cell__inner">1x1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
 

@@ -37,6 +37,6 @@ IE8+ - Because [IE8 is back from the dead](http://www.webdesignerdepot.com/2016/
 
 ## TODO
 - [ ] Examples
-- [ ] Masonry layout metodology
+- [x] Masonry layout metodology
 - [ ] Flexbox support for modern browsers
 - [ ] Feature polyfills for old browsers

@@ -25,55 +25,129 @@
 ///
 /// @require {function} gs-strip-unit
 
-@mixin gs($prop: null, $val1: null, $val2: null) {
-  // clearfix
-  @if $prop == clearfix {
-    &:before,
-    &:after {
-      content: " "; // 1
-      display: table; // 2
+@mixin gs-clearfix(){
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin gs-box-sizing(){
+  box-sizing: border-box;
+}
+
+@mixin gs-wrap-init(){
+  @include gs-clearfix;
+  @include gs-box-sizing;
+}
+
+@mixin gs-col-init(){
+  @include gs-box-sizing;
+  display: inline-block;
+  width: 100%;
+  min-height: 1px;
+  float: left;
+}
+
+@mixin gs-col($val1: null, $val2: null){
+  width: percentage($val1 / $val2);
+}
+
+@mixin gs-gutter($gutter: null){
+  @if $gutter < 0 {
+    margin: gs-strip-unit($gutter / 2)#{px};
+  } @else {
+    padding: gs-strip-unit($gutter / 2)#{px};
+  }
+}
+
+@mixin gs-gutter-horizontal($gutter: null){
+  @if $gutter < 0 {
+    margin-left: gs-strip-unit($gutter / 2)#{px};
+    margin-right: gs-strip-unit($gutter / 2)#{px};
+  } @else {
+    padding-left: gs-strip-unit($gutter / 2)#{px};
+    padding-right: gs-strip-unit($gutter / 2)#{px};
+  }
+}
+
+@mixin gs-gutter-vertical($gutter: null){
+  @if $gutter < 0 {
+    margin-top: gs-strip-unit($gutter / 2)#{px};
+    margin-bottom: gs-strip-unit($gutter / 2)#{px};
+  } @else {
+    padding-top: gs-strip-unit($gutter / 2)#{px};
+    padding-bottom: gs-strip-unit($gutter / 2)#{px};
+  }
+}
+
+@mixin gs-gutter-absolute($gutter: null){
+  top: gs-strip-unit($gutter / 2)#{px};
+  right: gs-strip-unit($gutter / 2)#{px};
+  bottom: gs-strip-unit($gutter / 2)#{px};
+  left: gs-strip-unit($gutter / 2)#{px};
+}
+
+@mixin gs-masonry-inner-init($prop: null){
+  position: relative;
+}
+
+@mixin gs-masonry-inner($rows: null, $cols: null, $width: 16, $height: 9){
+  padding-bottom: percentage( ($height * $rows) / ($width * $cols) );
+}
+
+@mixin gs-masonry-items-init($prop: null){
+  @include gs-wrap-init;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@mixin gs-masonry-items($rows: null, $cols: null, $width: 16, $height: 9){
+  width: percentage(1/$cols);
+  padding-bottom: percentage( $height / ($width * $cols) );
+}
+
+@mixin gs-masonry-item-init(){
+  @include gs-col-init;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@mixin gs-masonry-item($rows: null, $cols: null, $width: 16, $height: 9, $breakpoint: null){
+  @if $breakpoint != null {
+    @for $i from 1 through $cols {
+      &.#{$breakpoint}-w-#{$i} { width: percentage($i); }
+      &.#{$breakpoint}-l-#{$i - 1} { left: percentage($i - 1); }
     }
-    &:after {
-      clear: both;
+    @for $i from 1 through $rows {
+      &.#{$breakpoint}-h-#{$i} { padding-bottom: percentage( ($height / $width) * $i ); }
+      &.#{$breakpoint}-t-#{$i - 1} { top: percentage($i - 1); }
+    }
+  } @else {
+    @for $i from 1 through $cols {
+      &.w-#{$i} { width: percentage($i); }
+      &.l-#{$i - 1} { left: percentage($i - 1); }
+    }
+    @for $i from 1 through $rows {
+      &.h-#{$i} { padding-bottom: percentage( ($height / $width) * $i ); }
+      &.t-#{$i - 1} { top: percentage($i - 1); }
     }
   }
-  // box-sizing
-  @if $prop == box-sizing {
-    & {
-      box-sizing: border-box;
-      @if $val1 == inherit {
-        > * {
-          box-sizing: inherit;
-        }
-      }
-    }
-  }
-  // init wrapper
-  @else if $prop == wrap {
-    @include gs(clearfix);
-    @include gs(box-sizing, inherit);
-  }
-  // set column width
-  @else if $prop == col and $val1 != null {
-    width: percentage($val1 / $val2);
-  }
-  // init column
-  @else if $prop == col {
-    display: inline-block;
-    width: percentage(1);
-    min-height: 1px;
-    float: left;
-  }
-  // set gutter
-  @else if $prop == gutter {
-    @if $val1 < 0 {
-      // set wrapper gutter
-      margin-left: gs-strip-unit($val1 / 2)#{px};
-      margin-right: gs-strip-unit($val1 / 2)#{px};
-    } @else {
-      // set column gutter
-      padding-left: gs-strip-unit($val1 / 2)#{px};
-      padding-right: gs-strip-unit($val1 / 2)#{px};
-    }
-  }
+}
+
+@mixin gs-masonry-content-init(){
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  overflow: hidden;
 }

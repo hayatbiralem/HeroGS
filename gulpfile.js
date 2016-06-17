@@ -47,7 +47,7 @@ gulp.task('html', function () {
 gulp.task('sass', function () {
     return gulp.src('src/**/*.scss')
         .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+        .pipe(sass({outputStyle: 'compact'}).on('error', sass.logError))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('dist'))
         .pipe(connect.reload());
