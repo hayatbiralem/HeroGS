@@ -1,59 +1,95 @@
-.grid {
-  margin-left: -15px;
-  margin-right: -15px;
-}
+.grid { box-sizing: border-box; }
 
-.grid:before, .grid:after {
-  content: " ";
-  display: table;
-}
+.grid:before, .grid:after { content: " "; display: table; }
 
-.grid:after {
-  clear: both;
-}
+.grid:after { clear: both; }
 
-.grid {
-  box-sizing: border-box;
-}
+.grid--gutter-30 { margin: -15px; }
 
-.grid > * {
-  box-sizing: inherit;
-}
+.grid--gutter-30 .grid__col { padding: 15px; }
 
-.grid__col {
-  display: inline-block;
-  width: 100%;
-  min-height: 1px;
-  float: left;
-  padding-left: 15px;
-  padding-right: 15px;
-}
+.grid__col { box-sizing: border-box; display: inline-block; width: 100%; min-height: 1px; float: left; }
 
-@media (min-width: 768px) {
-  .grid__col {
-    width: 25%;
-  }
-}
+@media (min-width: 768px) { .grid--sm-4 .grid__col { width: 25%; } }
 
-@media (max-width: 767px) {
-  .grid__col + .grid__col {
-    margin-top: 30px;
-  }
-}
+.masonry-grid__inner { position: relative; }
 
-/* demo styles */
-body {
-  margin: 0;
-}
+.masonry-grid__items { box-sizing: border-box; position: absolute; left: 0; top: 0; }
 
-.wrapper {
-  padding: 30px;
-}
+.masonry-grid__items:before, .masonry-grid__items:after { content: " "; display: table; }
 
-.grid__content {
-  padding: 10px 15px;
-  border: 1px solid #eee;
-  background-color: #f5f5f5;
-}
+.masonry-grid__items:after { clear: both; }
+
+.masonry-grid--6x2 .masonry-grid__inner { padding-bottom: 186.48649%; }
+
+.masonry-grid--6x2 .masonry-grid__items { width: 50%; padding-bottom: 31.08108%; }
+
+@media (min-width: 768px) { .masonry-grid--sm-4x3 .masonry-grid__inner { padding-bottom: 82.88288%; }
+  .masonry-grid--sm-4x3 .masonry-grid__items { width: 33.33333%; width: 33.33333%; padding-bottom: 20.72072%; } }
+
+.masonry-grid__item { box-sizing: border-box; display: inline-block; width: 100%; min-height: 1px; float: left; position: absolute; left: 0; top: 0; }
+
+.masonry-grid__item.w-1 { width: 100%; }
+
+.masonry-grid__item.l-0 { left: 0%; }
+
+.masonry-grid__item.w-2 { width: 200%; }
+
+.masonry-grid__item.l-1 { left: 100%; }
+
+.masonry-grid__item.h-1 { padding-bottom: 62.16216%; }
+
+.masonry-grid__item.t-0 { top: 0%; }
+
+.masonry-grid__item.h-2 { padding-bottom: 124.32432%; }
+
+.masonry-grid__item.t-1 { top: 100%; }
+
+.masonry-grid__item.h-3 { padding-bottom: 186.48649%; }
+
+.masonry-grid__item.t-2 { top: 200%; }
+
+.masonry-grid__item.h-4 { padding-bottom: 248.64865%; }
+
+.masonry-grid__item.t-3 { top: 300%; }
+
+.masonry-grid__item.h-5 { padding-bottom: 310.81081%; }
+
+.masonry-grid__item.t-4 { top: 400%; }
+
+.masonry-grid__item.h-6 { padding-bottom: 372.97297%; }
+
+.masonry-grid__item.t-5 { top: 500%; }
+
+@media (min-width: 768px) { .masonry-grid__item.sm-w-1 { width: 100%; }
+  .masonry-grid__item.sm-l-0 { left: 0%; }
+  .masonry-grid__item.sm-w-2 { width: 200%; }
+  .masonry-grid__item.sm-l-1 { left: 100%; }
+  .masonry-grid__item.sm-w-3 { width: 300%; }
+  .masonry-grid__item.sm-l-2 { left: 200%; }
+  .masonry-grid__item.sm-h-1 { padding-bottom: 62.16216%; }
+  .masonry-grid__item.sm-t-0 { top: 0%; }
+  .masonry-grid__item.sm-h-2 { padding-bottom: 124.32432%; }
+  .masonry-grid__item.sm-t-1 { top: 100%; }
+  .masonry-grid__item.sm-h-3 { padding-bottom: 186.48649%; }
+  .masonry-grid__item.sm-t-2 { top: 200%; }
+  .masonry-grid__item.sm-h-4 { padding-bottom: 248.64865%; }
+  .masonry-grid__item.sm-t-3 { top: 300%; } }
+
+.masonry-grid__content { position: absolute; top: 0; right: 0; bottom: 0; left: 0; overflow: hidden; }
+
+.masonry-grid__gutter-30 { margin: -15px; }
+
+.masonry-grid__gutter-30 .masonry-grid__content { top: 15px; right: 15px; bottom: 15px; left: 15px; }
+
+body { margin: 0; }
+
+.wrapper { padding: 15px; max-width: 1200px; margin: 0 auto; }
+
+.cell { padding: 10px 15px; border: 1px solid #eee; text-align: center; background-color: #f5f5f5; }
+
+.masonry-grid__content .cell { height: 100%; }
+
+.masonry-grid__content .cell__inner { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
 
 /*# sourceMappingURL=docs.css.map */
