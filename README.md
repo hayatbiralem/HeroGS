@@ -1,7 +1,7 @@
 # HeroGS
 HeroGS is a tool that helps you to produce your grid system in simple ways.
 
-![alt tag](/src/ico/hero.svg)
+![alt tag](/src/ico/hero.svg?raw=true)
 
 ## Inspired of amazing packages
 - [flexiblegs-scss](https://github.com/flexiblegs/flexiblegs-scss) - Flexible Grid System Scss.
