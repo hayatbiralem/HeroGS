@@ -53,16 +53,25 @@ gulp.task('sass', function () {
         .pipe(connect.reload());
 });
 
+// assets
+gulp.task('assets', function(){
+    gulp.src('src/examples/**/*.{jpg,png,svg,ico}')
+        .pipe(gulp.dest('dist/examples'));
+});
+
 // connect
 gulp.task('connect', function() {
     connect.server({
         root: 'dist/examples',
-        livereload: true
+        livereload: {
+            port: 4377
+        },
+        port: 4376
     });
 });
 
 // build
-gulp.task('build', ['html', 'sass']);
+gulp.task('build', ['assets', 'html', 'sass']);
 
 // watch
 gulp.task('watch', function () {
