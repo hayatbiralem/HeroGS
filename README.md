@@ -29,25 +29,27 @@ HeroGS is a tool that helps you to produce your grid system in simple ways.
       @include gs-col(1, 4); // set width for tablet devices and upper
   }
 }
-
 ```
 
 ## Working with Gulp
 
 1. Go to the project directory
-```
-cd path/to/HeroGS
-```
+
+    ```bash
+    cd path/to/HeroGS
+    ```
 
 2. Install npm dependencies
-```
-npm install
-```
+
+    ```bash
+    npm install
+    ```
 
 3. Connect to the server, build examples and watch for changes
-```
-gulp
-```
+
+    ```bash
+    gulp
+    ```
 
 then open [localhost:4376](http://localhost:4376) from your browser
 
