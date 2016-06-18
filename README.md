@@ -10,22 +10,44 @@ HeroGS is a tool that helps you to produce your grid system in simple ways.
 ## Example
 ```sass
 .grid {
-  @include gs(wrap); // init wrapper
-  @include gs(gutter, -30); // use negative value for setting gutter for wrapper
+  @include gs-wrap-init(); // init wrapper
 }
+
 .grid__col {
-  @include gs(col); // init column
-  @include gs(gutter, 30); // use positive value for setting gutter for columns
-  @media (min-width: 768px){
-    @include gs(col, 1, 4); // set width for tablet devices and upper
+  @include gs-col-init(); // init column
+}
+
+.grid--gutter-30 {
+  @include gs-gutter(-30); // use negative value for setting gutter for wrapper
+  .grid__col {
+    @include gs-gutter(30); // use positive value for setting gutter for columns
   }
 }
+
+@media (min-width: 768px){
+  .grid--sm-4 .grid__item {
+      @include gs-col(1, 4); // set width for tablet devices and upper
+  }
+}
+
 ```
 
 ## Working with Gulp
-- `cd path/to/HeroGS` Go to the project directory
-- `npm install` Install npm dependencies
-- `gulp` Connect to the server, build examples and watch for changes
+
+1. Go to the project directory
+```
+cd path/to/HeroGS
+```
+
+2. Install npm dependencies
+```
+npm install
+```
+
+3. Connect to the server, build examples and watch for changes
+```
+gulp
+```
 
 then open [localhost:4376](http://localhost:4376) from your browser
 

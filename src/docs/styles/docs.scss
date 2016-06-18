@@ -8,15 +8,15 @@
   @include gs-wrap-init();
 }
 
+.grid__col {
+  @include gs-col-init();
+}
+
 .grid--gutter-30 {
   @include gs-gutter(-30);
   .grid__col {
     @include gs-gutter(30);
   }
-}
-
-.grid__col {
-  @include gs-col-init();
 }
 
 @media (min-width: 768px){

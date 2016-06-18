@@ -4,11 +4,11 @@
 
 .grid:after { clear: both; }
 
+.grid__col { box-sizing: border-box; display: inline-block; width: 100%; min-height: 1px; float: left; }
+
 .grid--gutter-30 { margin: -15px; }
 
 .grid--gutter-30 .grid__col { padding: 15px; }
-
-.grid__col { box-sizing: border-box; display: inline-block; width: 100%; min-height: 1px; float: left; }
 
 @media (min-width: 768px) { .grid--sm-4 .grid__col { width: 25%; } }
 
