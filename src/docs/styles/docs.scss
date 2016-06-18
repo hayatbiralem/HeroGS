@@ -31,7 +31,25 @@
 
 $masonry-grid-width: 370px;
 $masonry-grid-height: 230px;
-$masonry-grid-ratio: $masonry-grid-height / $masonry-grid-width;
+
+@mixin my-masonry-grid($rows: null, $cols: null, $breakpoint: null, $width: 370px, $height: 230px){
+  $tag: ".masonry-grid--#{$rows}x#{$cols}";
+  @if $breakpoint != null {
+    $tag: ".masonry-grid--#{$breakpoint}-#{$rows}x#{$cols}";
+  }
+
+  #{$tag} {
+    .masonry-grid__inner {
+      @include gs-masonry-inner($rows, $cols, $width, $height);
+    }
+    .masonry-grid__items {
+      @include gs-masonry-items($rows, $cols, $width, $height);
+    }
+  }
+}
+@mixin my-masonry-item($rows: null, $cols: null, $breakpoint: null, $width: 370px, $height: 230px){
+  @include gs-masonry-item($rows, $cols, $width, $height, $breakpoint);
+}
 
 .masonry-grid {}
 
@@ -43,32 +61,35 @@ $masonry-grid-ratio: $masonry-grid-height / $masonry-grid-width;
   @include gs-masonry-items-init();
 }
 
-.masonry-grid--6x2 {
-  .masonry-grid__inner {
-    @include gs-masonry-inner(6, 2, $masonry-grid-width, $masonry-grid-height);
-  }
-  .masonry-grid__items {
-    @include gs-masonry-items(6, 2, $masonry-grid-width, $masonry-grid-height);
-  }
+@include my-masonry-grid(6, 1);
+
+@media (min-width: 480px){
+  @include my-masonry-grid(6, 2, xs);
 }
 
 @media (min-width: 768px){
-  .masonry-grid--sm-4x3 {
-    .masonry-grid__inner {
-      @include gs-masonry-inner(4, 3, $masonry-grid-width, $masonry-grid-height);
-    }
-    .masonry-grid__items {
-      width: percentage(1/3);
-      @include gs-masonry-items(4, 3, $masonry-grid-width, $masonry-grid-height);
-    }
-  }
+  @include my-masonry-grid(4, 3, sm);
+}
+
+@media (min-width: 992px){
+  @include my-masonry-grid(3, 4, md);
 }
 
 .masonry-grid__item {
   @include gs-masonry-item-init();
-  @include gs-masonry-item(6, 2, $masonry-grid-width, $masonry-grid-height);
+
+  @include my-masonry-item(6, 1);
+
+  @media (min-width: 480px){
+    @include my-masonry-item(6, 2, xs);
+  }
+
   @media (min-width: 768px){
-    @include gs-masonry-item(4, 3, $masonry-grid-width, $masonry-grid-height, sm);
+    @include my-masonry-item(4, 3, sm);
+  }
+
+  @media (min-width: 992px){
+    @include my-masonry-item(3, 4, md);
   }
 }
 
@@ -82,7 +103,6 @@ $masonry-grid-ratio: $masonry-grid-height / $masonry-grid-width;
     @include gs-gutter-absolute(30);
   }
 }
-
 
 // ----------------------------
 // Demo styles
@@ -105,6 +125,11 @@ body {
   text-align: center;
 
   background-color: #f5f5f5;
+}
+
+.grid__item,
+.masonry-grid__item {
+  transition: all 1s ease-in-out;
 }
 
 .masonry-grid__content {

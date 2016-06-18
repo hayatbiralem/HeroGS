@@ -36,7 +36,7 @@ HeroGS is a tool that helps you to produce your grid system in simple ways.
 1. Go to the project directory
 
     ```bash
-    cd path/to/HeroGS
+    cd path/to/herogs
     ```
 
 2. Install npm dependencies
@@ -45,13 +45,13 @@ HeroGS is a tool that helps you to produce your grid system in simple ways.
     npm install
     ```
 
-3. Connect to the server, build examples and watch for changes
+3. Connect, build and watch
 
     ```bash
     gulp
     ```
 
-then open [localhost:4376](http://localhost:4376) from your browser
+4. Open [localhost:4376](http://localhost:4376) from your browser
 
 ## Browser support
 IE8+ - Because [IE8 is back from the dead](http://www.webdesignerdepot.com/2016/01/ie8-is-back-from-the-dead/)
