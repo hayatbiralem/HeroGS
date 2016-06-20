@@ -57,11 +57,18 @@
   width: percentage($val1 / $val2);
 }
 
-@mixin gs-gutter($gutter: null){
-  @if $gutter < 0 {
-    margin: gs-strip-unit($gutter / 2)#{px};
+@mixin gs-gutter($gutter: null, $item-selector: null){
+  @if $item-selector != null {
+    margin: gs-strip-unit($gutter / -2)#{px};
+    #{$item-selector} {
+      padding: gs-strip-unit($gutter / 2)#{px};
+    }
   } @else {
-    padding: gs-strip-unit($gutter / 2)#{px};
+    @if $gutter < 0 {
+      margin: gs-strip-unit($gutter / 2)#{px};
+    } @else {
+      padding: gs-strip-unit($gutter / 2)#{px};
+    }
   }
 }
 

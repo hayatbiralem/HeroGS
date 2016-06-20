@@ -97,7 +97,7 @@ $masonry-grid-height: 230px;
   @include gs-masonry-content-init();
 }
 
-.masonry-grid__gutter-30 {
+.masonry-grid--gutter-30 {
   @include gs-gutter(-30);
   .masonry-grid__content {
     @include gs-gutter-absolute(30);
